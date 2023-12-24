@@ -1,19 +1,19 @@
 # REST_API_with_Python_Django, where I studied:
-1. API creation Basics:
+<h3>1. API creation Basics:</h3>
 <ol>
-   <li>2. Serializers</li> 
-    <li>3. Function-Based Views</li> 
-    <li>4. Class-Based Views</li> 
-    <li>5. Viewsets and Routers</li> 
-    <li>6. Permissions</li> 
-    <li>7. Authentications</li> 
-    <li>8. Throttling</li> 
-    <li>9. Django Filter Backend</li> 
-    <li>10. Pagination</li> 
+   <li>Serializers</li> 
+    <li>Function-Based Views</li> 
+    <li>Class-Based Views</li> 
+    <li>Viewsets and Routers</li> 
+    <li>Permissions</li> 
+    <li>Authentications</li> 
+    <li>Throttling</li> 
+    <li>Django Filter Backend</li> 
+    <li>Pagination</li> 
 </ol>
-2. Automated API Testing
+<h3>2. Automated API Testing</h3>
 
---------- Installation & Running
+<h2>Installation & Running</h2>
 1. Copy the project to your local computer
 2. Create VirtualEnvironment and install packages from "requirements.txt"
 3. Start the local server by running command "python3 manage.py runserver"
