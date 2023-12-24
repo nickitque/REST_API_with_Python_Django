@@ -1,6 +1,6 @@
 # REST_API_with_Python_Django, where I studied:
 1. API creation Basics:
-<ul>
+<ol>
    <li>2. Serializers</li> 
     <li>3. Function-Based Views</li> 
     <li>4. Class-Based Views</li> 
@@ -10,7 +10,7 @@
     <li>8. Throttling</li> 
     <li>9. Django Filter Backend</li> 
     <li>10. Pagination</li> 
-</ul>
+</ol>
 2. Automated API Testing
 
 --------- Installation & Running
