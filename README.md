@@ -1,5 +1,5 @@
-# REST_API_with_Python_Django, where I studied:
-<h3>1. API creation Basics:</h3>
+# Creation of REST API with Django Rest Framework, where I studied:
+<h3>1. REST API creation with Python:</h3>
 <ol>
    <li>Serializers</li> 
     <li>Function-Based Views</li> 
