@@ -1,4 +1,8 @@
-# Creation of REST API with Django Rest Framework, where I studied:
+# About the Project
+This is a API clone of the IMDB. Perfect for showing the knowledge and understanding of API.
+![img.png](img.png)
+It has a lot of Space for API Manual and Automated testing.
+# REST API with Python DRF, where I studied:
 <h3>1. REST API creation with Python:</h3>
 <ol>
    <li>Serializers</li> 
