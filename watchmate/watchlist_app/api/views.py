@@ -19,6 +19,7 @@ def movie_list(request):
         else:
             return Response(serializer.errors)
 
+
 @api_view(['GET', 'PUT', 'DELETE'])
 def movie_detail(request, pk):
     if request.method == 'GET':
@@ -35,11 +36,9 @@ def movie_detail(request, pk):
         else:
             return Response(serializer.errors)
 
-
     if request.method == 'DELETE':
         movie = Movie.objects.get(pk=pk)
         movies = Movie.objects.all()
         movie.delete()
         serializer = MovieSerializer(movies, many=True)
         return Response(serializer.data)
-
