@@ -8,6 +8,9 @@ from rest_framework import generics, mixins, viewsets
 from watchlist_app.api.permissions import IsAdminOrReadOnly, IsReviewUserOrReadOnly
 from watchlist_app.models import WatchList, StreamPlatform, Review
 from watchlist_app.api.serializers import WatchListSerializer, StreamPlatformSerializer, ReviewSerializer
+from watchlist_app.api.pagination import WatchListPagination
+from rest_framework import filters
+
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -208,6 +211,7 @@ class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
 class WatchListGV(generics.ListAPIView):
     queryset = WatchList.objects.all()
     serializer_class = WatchListSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['title', 'platform__name']
+    pagination_class = WatchListPagination
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['avg_rating']
     # permission_classes = [IsAuthenticated]
