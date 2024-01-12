@@ -3,8 +3,6 @@ This is my API clone of the IMDB to show the knowledge and understanding of API 
 Django Rest Framework allows us to create browsable API with friendly HTML output. 
 It has a lot of space for manual and Automated API testing.
 ![img_1.jpg](img_1.jpg)
-# About testing framework:
-
 
 # Knowledge that I got from this project:
 <h3>1. REST API creation with Python:</h3>
