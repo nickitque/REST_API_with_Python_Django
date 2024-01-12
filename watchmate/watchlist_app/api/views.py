@@ -1,16 +1,14 @@
-from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework import generics, mixins, viewsets
+from rest_framework import generics, viewsets
 from watchlist_app.api.permissions import IsAdminOrReadOnly, IsReviewUserOrReadOnly
 from watchlist_app.models import WatchList, StreamPlatform, Review
 from watchlist_app.api import serializers
 from watchlist_app.api.pagination import WatchListPagination
 from rest_framework import filters
-
 from django_filters.rest_framework import DjangoFilterBackend
 
 
@@ -18,7 +16,6 @@ class UserReview(generics.ListAPIView):
     serializer_class = serializers.ReviewSerializer
 
     def get_queryset(self):
-        # username = self.kwargs['username']
         username = self.request.query_params.get('username', None)
         return Review.objects.filter(review_user__username=username)
 
@@ -75,25 +72,6 @@ class StreamPlatformVS(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
 
 
-# class StreamPlatformVS(viewsets.ViewSet):
-#     def list(self, request):
-#         queryset = StreamPlatform.objects.all()
-#         serializer = StreamPlatformSerializer(queryset, many=True)
-#         return Response(serializer.data)
-#     def retrieve(self, request, pk=None):
-#         queryset = StreamPlatform.objects.all()
-#         watchlist = get_object_or_404(queryset, pk=pk)
-#         serializer = StreamPlatformSerializer(watchlist)
-#         return Response(serializer.data)
-#
-#     def create(self, requets):
-#         serializer = StreamPlatformSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         else:
-#             return Response(serializer.errors)
-
 class StreamPlatformAV(APIView):
     permission_classes = [IsAdminOrReadOnly]
 
@@ -138,28 +116,6 @@ class StreamPlatformDetailAV(APIView):
         movie.delete()
         serializer = serializers.StreamPlatformSerializer(movies, many=True)
         return Response(serializer.data)
-
-
-# class ReviewList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
-#     queryset = Review.objects.all()
-#     serializer_class = ReviewSerializer
-#
-#     def get(self, request, *args, **kwargs):
-#         return self.list(request, *args, **kwargs)
-#
-#     def post(self, request, *args, **kwargs):
-#         return self.create(request, *args, **kwargs)
-
-
-# class ReviewDetail(mixins.RetrieveModelMixin, generics.GenericAPIView):
-#     queryset = Review.objects.all()
-#     serializer_class = ReviewSerializer
-#
-#     def get(self, request, *args, **kwargs):
-#         return self.retrieve(request, *args, **kwargs)
-#
-#     def post(self, request, *args, **kwargs):
-#         return self.create(request, *args, **kwargs)
 
 
 class ReviewCreate(generics.CreateAPIView):
@@ -214,4 +170,3 @@ class WatchListGV(generics.ListAPIView):
     pagination_class = WatchListPagination
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['avg_rating']
-    # permission_classes = [IsAuthenticated]
